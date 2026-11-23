@@ -1,0 +1,21 @@
+genecompass:
+  pretrained_dir: "${oc.env:MERGE_ASSET_ROOT,./assets}/GeneCompass_Base"
+  token_dict_path: "${oc.env:MERGE_ASSET_ROOT,./assets}/prior_knowledge/human_mouse_tokens.pickle"
+  prior_knowledge_dir: "${oc.env:MERGE_ASSET_ROOT,./assets}/prior_knowledge"
+  freeze_layers: 0
+  hidden_dim: 768
+  max_tokens: 2048
+
+metal_encoder:
+  input_dim: 5
+  hidden_dims: [128, 256]
+  output_dim: 768
+  dropout: 0.1
+
+classification_head:
+  hidden_dim: 768
+  mid_dim: 256
+  n_classes: 3
+  dropout: 0.1
+
+fusion: add

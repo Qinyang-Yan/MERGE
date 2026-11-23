@@ -1,0 +1,2 @@
+# Install MERGE and its test dependencies.
+-e .[dev]

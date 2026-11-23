@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+.venv/
+venv/
+
+# macOS and editors
+.DS_Store
+.idea/
+.vscode/
+
+# Local data, model assets, and third-party source trees
+data/
+assets/
+outputs/
+third_party/
+*.h5ad
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.npy
+*.pickle
+*.pkl
+*.zip
+*.log
+
+# Local external-data manifest; use the tracked example as a template
+configs/external_config.yaml

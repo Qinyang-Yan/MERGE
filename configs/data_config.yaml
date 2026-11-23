@@ -1,0 +1,30 @@
+# All paths can be overridden from the command line or with environment variables.
+data_root: "${oc.env:MERGE_DATA_ROOT,./data}"
+h5ad_dir: "${data_root}/h5ad"
+metal_feat_csv: "${data_root}/metal_electrochemical_features.csv"
+output_root: "${oc.env:MERGE_OUTPUT_ROOT,./outputs}"
+
+# Optional explicit mapping from condition names to H5AD files. When null,
+# files are discovered in h5ad_dir and ambiguous matches raise an error.
+h5ad_files: null
+
+metal_classes: [Mg, Mg_alloy, Mg_coat, Mo, Ti, Zn]
+ctrl_class: Ctr
+
+qc:
+  min_genes: 200
+  max_genes: 5000
+  max_mt_pct: 20.0
+  min_cells_per_gene: 3
+
+normalize:
+  target_sum: 10000
+
+hvg:
+  n_top: 3000
+  method: seurat_v3
+
+# metal_class aggregates replicate measurements into one vector per condition;
+# sample_id retains a separate descriptor vector for each sample_id row.
+feature_matching:
+  mode: metal_class

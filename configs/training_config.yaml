@@ -1,0 +1,51 @@
+run_name: merge
+seed: 42
+
+labels:
+  threshold: 0.25
+  ignore_index: -1
+  min_cells_per_group: 5
+
+training:
+  num_epochs: 50
+  batch_size: 32
+  gradient_accumulation_steps: 2
+  mixed_precision: true
+  gradient_clip_norm: 1.0
+  num_workers: 4
+  pin_memory: true
+
+loss:
+  type: weighted_ce
+  label_smoothing: 0.05
+
+optimizer:
+  type: AdamW
+  weight_decay: 0.01
+  genecompass_lr: 1.0e-5
+  new_params_lr: 1.0e-4
+  beta1: 0.9
+  beta2: 0.999
+
+scheduler:
+  type: warmup_cosine
+  warmup_ratio: 0.1
+  min_lr_ratio: 0.01
+
+early_stopping:
+  enabled: true
+  patience: 10
+  monitor: val_macro_f1
+  mode: max
+  min_delta: 0.001
+
+checkpoint:
+  monitor: val_macro_f1
+  mode: max
+  save_last: true
+
+# Within each material class, sample IDs are sorted lexicographically. The last
+# sample is held out for testing and the penultimate sample for validation.
+split:
+  val_samples_per_metal: 1
+  test_samples_per_metal: 1

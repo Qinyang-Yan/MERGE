@@ -1,0 +1,11 @@
+# Copy this file and replace the example names with your own material metadata.
+# Relative paths are resolved from the directory where the command is run.
+metal_feature_csv: "data/external/metal_electrochemical_features.csv"
+
+materials:
+  - name: material_a
+    h5ad: "data/external/material_a.h5ad"
+    feature_class: material_a
+  - name: material_b
+    h5ad: "data/external/material_b.h5ad"
+    feature_class: material_b
