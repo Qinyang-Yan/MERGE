@@ -9,7 +9,6 @@ A multimodal virtual-cell model that links the **measured electrochemistry** of 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![Scanpy](https://img.shields.io/badge/single--cell-Scanpy%20%7C%20AnnData-2E7D32)](https://scanpy.readthedocs.io/)
-[![Tests](https://github.com/Qinyang-Yan/MERGE/actions/workflows/tests.yml/badge.svg)](https://github.com/Qinyang-Yan/MERGE/actions/workflows/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Author](https://img.shields.io/badge/Author-Qinyang--Yan-6F42C1)](https://github.com/Qinyang-Yan)
 
