@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/figures/merge_logo.png" alt="MERGE logo" width="600"/>
+
 # MERGE
 
 ### Metal Electrochemical-Response Gene Embedding：预测金属生物材料引起的转录响应

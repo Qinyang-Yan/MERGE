@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="docs/figures/merge_logo.png" alt="MERGE logo" width="600"/>
+
 # MERGE
 
 ### Metal Electrochemical-Response Gene Embedding Predicts Transcriptional Responses to Metallic Biomaterials
