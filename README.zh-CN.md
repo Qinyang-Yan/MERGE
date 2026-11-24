@@ -1,12 +1,15 @@
 <div align="center">
 
-<img src="docs/figures/merge_logo.png" alt="MERGE logo" width="600"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/figures/merge_logo_dark.png"/>
+  <source media="(prefers-color-scheme: light)" srcset="docs/figures/merge_logo.png"/>
+  <img src="docs/figures/merge_logo.png" alt="MERGE — Metal Electrochemical-Response Gene Embedding" width="460"/>
+</picture>
 
-# MERGE
+### Metal Electrochemical-Response Gene Embedding
+**预测金属生物材料引起的转录响应**
 
-### Metal Electrochemical-Response Gene Embedding：预测金属生物材料引起的转录响应
-
-一个多模态虚拟细胞模型，将金属生物材料的**实测电化学性质**与**细胞类型特异的转录响应方向**联系起来。
+一个多模态虚拟细胞模型，将**材料电化学性质**与**细胞类型特异的基因响应**联系起来。
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
@@ -16,13 +19,7 @@
 
 [English](README.md) | **简体中文**
 
-<img src="docs/figures/Fig_model.png" alt="MERGE 模型架构" width="740"/>
-
-<sub><b>MERGE 总览。</b>对照细胞的表达谱经秩–值编码后由预训练的 GeneCompass Base 处理
-（12 层 Transformer、12 个注意力头、隐藏维度 768）；五个电化学描述符
-（<i>E</i><sub>corr</sub>、<i>i</i><sub>corr</sub>、<i>R</i><sub>p</sub>、<i>f</i><sub>MAX</sub>、Phase<sub>MAX</sub>）
-由专用的多层感知机编码。两路 768 维嵌入逐元素相加融合，并为模型基因空间中的每个基因输出
-<b>下调（Down）/ 不变（Unchanged）/ 上调（Up）</b>三类 logits。本图为模型示意图，非实验数据图。</sub>
+[模型简介](#-模型简介) · [安装](#-安装) · [模型架构](#-模型架构) · [模型文档](docs/model.md)
 
 </div>
 
@@ -57,6 +54,13 @@ MERGE 在一个固定顺序的基因空间中，为每个基因预测其对金�
 只需要它的电化学测量值和原始对照参考，无需任何新的转录组数据。
 
 ## 🏗️ 模型架构
+
+<div align="center">
+<img src="docs/figures/Fig_model.png" alt="MERGE 模型架构" width="820"/>
+<br/>
+<sub><b>MERGE 总览。</b>对照细胞表达由 GeneCompass Base 编码，五个电化学描述符由专用 MLP 编码。
+两路表示加性融合后，在模型基因空间中输出<b>下调 / 不变 / 上调</b>预测。本图为模型示意图，非实验数据图。</sub>
+</div>
 
 | 分支 | 输入 | 编码器 | 输出 |
 |---|---|---|---|

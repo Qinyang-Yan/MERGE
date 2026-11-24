@@ -1,12 +1,15 @@
 <div align="center">
 
-<img src="docs/figures/merge_logo.png" alt="MERGE logo" width="600"/>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/figures/merge_logo_dark.png"/>
+  <source media="(prefers-color-scheme: light)" srcset="docs/figures/merge_logo.png"/>
+  <img src="docs/figures/merge_logo.png" alt="MERGE — Metal Electrochemical-Response Gene Embedding" width="460"/>
+</picture>
 
-# MERGE
+### Metal Electrochemical-Response Gene Embedding
+**Predicts Transcriptional Responses to Metallic Biomaterials**
 
-### Metal Electrochemical-Response Gene Embedding Predicts Transcriptional Responses to Metallic Biomaterials
-
-A multimodal virtual-cell model that links the **measured electrochemistry** of metallic biomaterials to **cell-type-specific transcriptional response directions**.
+A multimodal virtual-cell model linking **material electrochemistry** to **cell-type-specific gene responses**.
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.1%2B-EE4C2C?logo=pytorch&logoColor=white)](https://pytorch.org/)
@@ -16,13 +19,7 @@ A multimodal virtual-cell model that links the **measured electrochemistry** of 
 
 **English** | [简体中文](README.zh-CN.md)
 
-<img src="docs/figures/Fig_model.png" alt="MERGE model architecture" width="740"/>
-
-<sub><b>MERGE overview.</b> A control-cell expression profile is rank–value encoded and processed by pretrained
-GeneCompass Base (12 layers, 12 heads, hidden size 768). Five electrochemical descriptors
-(<i>E</i><sub>corr</sub>, <i>i</i><sub>corr</sub>, <i>R</i><sub>p</sub>, <i>f</i><sub>MAX</sub>, Phase<sub>MAX</sub>) are
-encoded by a dedicated multilayer perceptron. The two 768-dimensional embeddings are fused by element-wise addition
-and mapped to <b>Down / Unchanged / Up</b> logits for every gene in the model space. Schematic illustration; not experimental data.</sub>
+[Overview](#-overview) · [Installation](#-installation) · [Architecture](#-architecture) · [Model documentation](docs/model.md)
 
 </div>
 
@@ -58,6 +55,14 @@ predictions for an untested material require nothing more than its electrochemic
 control reference.
 
 ## 🏗️ Architecture
+
+<div align="center">
+<img src="docs/figures/Fig_model.png" alt="MERGE model architecture" width="820"/>
+<br/>
+<sub><b>MERGE overview.</b> Control-cell expression is encoded by GeneCompass Base, while five electrochemical
+descriptors are encoded by a dedicated MLP. Additive fusion produces <b>Down / Unchanged / Up</b> predictions
+across the model gene space. Schematic illustration; not experimental data.</sub>
+</div>
 
 | Branch | Input | Encoder | Output |
 |---|---|---|---|
